@@ -1,0 +1,10 @@
+# SBT
+target/
+project/target
+
+# Eclipse
+bin/
+.settings/
+.project
+.classpath
+.cache
