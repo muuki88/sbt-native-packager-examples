@@ -8,11 +8,13 @@ version := "1.0"
 
 libraryDependencies ++= Seq(
     "com.typesafe" % "config" % "1.2.0"
-)     
+)
+
+mainClass in Compile := Some("de.mukis.ConfigApp")
 
 packageArchetype.java_server
 
-maintainer in Debian := "Nepomuk Seiler <nepomuk.seiler@mukis.de>"
+maintainer in Linux := "Nepomuk Seiler <nepomuk.seiler@mukis.de>"
 
 packageSummary in Linux := "Custom application configuration"
 
