@@ -52,7 +52,26 @@ which can come in very handy.
 
 You can find a working example at *log4j-conf*
 
+## Custom Startup Parameters
+
+A small example how to configure your startup parameters with SBT Native Packager.
+You'll see how to add _java system properties_ and _application arguments_. We
+also change the `-Xmx` and `-Xms` settings.
+
+### Requirements
+
+* Linux OS (debian/rpm)
+
+### How it's done
+
+Create a file `src/templates/etc-default` and fill it with the content you need.
+
+### Project
+
+You can find a working example at *startscript-parameters*
+
 # Links
 
 * [SBT Native Packager](https://github.com/sbt/sbt-native-packager)
+* [SBT Native Packager Presentation](http://slid.es/muuki88/sbt-native-packager)
 
