@@ -7,14 +7,14 @@ import NativePackagerKeys._
 object ApplicationBuild extends Build {
 
     lazy val root = Project(
-        id = "helloWorld",
+        id = "hello_world",
         base = file("."),
         settings = Defaults.defaultSettings ++ packagerSettings ++ packageArchetype.java_server ++
           Seq(
-            name := "Hello World",
+            name := "Hello_World",
+            Keys.normalizedName := "hello-world",
             packageSummary := "Hello World Package",
             packageDescription := "Say hello to the world from different packages",
-            maintainer in Windows := "Typesafe Inc.",
             maintainer in Linux := "Nepomuk Seiler <nepomuk.seiler@mukis.de>"
           )
     )
