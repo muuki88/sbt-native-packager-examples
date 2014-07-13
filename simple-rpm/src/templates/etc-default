@@ -14,5 +14,12 @@
 # ${{daemon_user}}      daemon user
 # -------------------------------------------------
 
-# Referencing a custom config file
--Dconfig.file=${{chdir}}/conf/application.conf
+# Setting memory to 256
+# -mem 256
+-J-Xms128m -J-Xmx256m
+# Custom property
+-Dde.mukis=my-property
+# Application parameters
+-interval 15
+# Use reserved keywords as application parameters (available in 0.7.0 Release)
+# -- -d

@@ -4,6 +4,8 @@ This is a small collection of sbt-native-packager examples. Each example
 is very small and should be easy to understand. Pick the ones you need
 and tailor your packaging process.
 
+> Not all examples are 100% tested. Just open an issue if something doesn't work
+
 # Examples
 
 Currently all examples are tested for Debian only. Feel free to correct

@@ -12,7 +12,7 @@ object ApplicationBuild extends Build {
         settings = Defaults.defaultSettings ++ packagerSettings ++ packageArchetype.java_server ++
           Seq(
             name := "Hello_World",
-            Keys.normalizedName := "hello-world",
+            normalizedName in Debian := "hello-world",
             packageSummary := "Hello World Package",
             packageDescription := "Say hello to the world from different packages",
             maintainer in Linux := "Nepomuk Seiler <nepomuk.seiler@mukis.de>"
