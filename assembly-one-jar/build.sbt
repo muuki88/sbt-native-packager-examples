@@ -28,18 +28,19 @@ packageSummary in Linux := "Custom application configuration"
 
 packageDescription := "Custom application configuration"
 
-mappings in Universal <+= (packageBin in Compile, sourceDirectory ) map { (_, src) =>
-    // we are using the reference.conf as default application.conf
-    // the user can override settings here
-    val conf = src / "main" / "resources" / "reference.conf"
-    conf -> "conf/application.conf"
-}
-
 // removes all jar mappings in universal and appends the fat jar
-mappings in Universal <<= (mappings in Universal, assembly in Compile) map { (mappings, fatJar) =>
-    val filtered = mappings filter { case (file, name) =>  ! name.endsWith(".jar") }
+mappings in Universal := {
+    // universalMappings: Seq[(File,String)]
+    val universalMappings = (mappings in Universal).value 
+    val fatJar = (assembly in Compile).value
+    // removing means filtering
+    val filtered = universalMappings filter { 
+        case (file, name) =>  ! name.endsWith(".jar") 
+    }
+    // add the fat jar
     filtered :+ (fatJar -> ("lib/" + fatJar.getName))
 }
+    
 
 // the bash scripts classpath only needs the fat jar
 scriptClasspath := Seq( (jarName in assembly).value )
