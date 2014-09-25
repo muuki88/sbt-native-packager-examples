@@ -1,5 +1,3 @@
-import com.typesafe.sbt.SbtNativePackager._
-import com.typesafe.sbt.packager.archetypes.ServerLoader
 import NativePackagerKeys._
 
 name := "mukis-docking-station"
