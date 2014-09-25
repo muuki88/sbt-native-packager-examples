@@ -64,3 +64,7 @@ linuxPackageMappings := {
         _.mappings.nonEmpty
     } 
  }
+ 
+ // change symlinks
+ 
+ linuxPackageSymlinks := Seq.empty
