@@ -1,0 +1,25 @@
+# #################################
+# ##### Default configuration #####
+# #################################
+
+# Available replacements 
+# ------------------------------------------------
+# ${{author}}           debian author
+# ${{descr}}            debian package description
+# ${{exec}}             startup script name
+# ${{chdir}}            app directory
+# ${{retries}}          retries for startup
+# ${{retryTimeout}}     retry timeout
+# ${{app_name}}         normalized app name
+# ${{daemon_user}}      daemon user
+# -------------------------------------------------
+
+# Setting memory to 256
+# -mem 256
+-J-Xms128m -J-Xmx256m
+# Custom property
+-Dde.mukis=my-property
+# Application parameters
+-interval 15
+# Use reserved keywords as application parameters (available in 0.7.0 Release)
+# -- -d
