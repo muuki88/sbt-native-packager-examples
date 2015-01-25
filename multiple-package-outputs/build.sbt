@@ -22,7 +22,13 @@ rpmLicense := Some("Apache 2")
 
 // Creating custom packageOutputs formats
 
-addCommandAlias("packageAll", "; packageDebianSystemV ; packageDebianUpstart ; packageRpmSystemD")
+addCommandAlias("packageAll", "; clean " + 
+                              "; set serverLoading in Debian := com.typesafe.sbt.packager.archetypes.ServerLoader.SystemV" +
+                              "; packageDebianSystemV " +
+                              "; clean " + 
+                              "; set serverLoading in Debian := com.typesafe.sbt.packager.archetypes.ServerLoader.Upstart" +
+                              "; packageDebianUpstart " + 
+                              "; packageRpmSystemD")
 
 lazy val packageDebianUpstart = taskKey[File]("creates deb-upstart package")
 lazy val packageDebianSystemV = taskKey[File]("creates deb-systenv package")
@@ -30,7 +36,6 @@ lazy val packageRpmSystemD = taskKey[File]("creates rpm-systenv package")
 
 packageDebianUpstart := {
   val output = baseDirectory.value / "package" / "deb-upstart"
-  serverLoading in Debian := com.typesafe.sbt.packager.archetypes.ServerLoader.Upstart
   val debianFile = (packageBin in Debian).value
   IO.move(debianFile, output)
   output
@@ -38,7 +43,6 @@ packageDebianUpstart := {
 
 packageDebianSystemV := {
   val output = baseDirectory.value / "package" / "deb-systemv"
-  serverLoading in Debian := com.typesafe.sbt.packager.archetypes.ServerLoader.SystemV
   val debianFile = (packageBin in Debian).value
   IO.move(debianFile, output)
   output
