@@ -1,18 +1,15 @@
-import com.typesafe.sbt.SbtNativePackager._
-import com.typesafe.sbt.packager.archetypes.ServerLoader
-import NativePackagerKeys._
+enablePlugins(SbtNativePackager)
+enablePlugins(JavaAppPackaging)
 
 name := "mukis-application-conf"
 
 version := "1.0"
 
 libraryDependencies ++= Seq(
-    "com.typesafe" % "config" % "1.2.0"
+    "com.typesafe" % "config" % "1.2.1"
 )
 
 mainClass in Compile := Some("de.mukis.ConfigApp")
-
-packageArchetype.java_server
 
 maintainer in Linux := "Nepomuk Seiler <nepomuk.seiler@mukis.de>"
 
