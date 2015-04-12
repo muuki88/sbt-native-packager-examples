@@ -15,9 +15,16 @@ object MainApp extends App {
   log newLine ()
   log.close
 
-  val interval = args.indexOf("-interval") match {
-    case i if args.size >= i => args(i + 1).toInt
-    case _                   => 10
+  val interval = {
+    try {
+      args.indexOf( "-interval" ) match {
+        case i if args.size >= i => args( i + 1 ).toInt
+        case _                   => 10
+      }
+    } catch {
+      case e: Exception =>
+        10
+    }
   }
 
   // Creating an executor service to schedule the config parsing
