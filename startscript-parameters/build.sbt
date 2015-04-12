@@ -11,3 +11,7 @@ maintainer in Debian := "Nepomuk Seiler <nepomuk.seiler@mukis.de>"
 packageSummary in Linux := "Custom startscript parameters"
 
 packageDescription := "Custom startscript parameters"
+
+rpmVendor := "Nepomuk Seiler"
+
+rpmLicense := Some( "GNU/GPLv3" )
