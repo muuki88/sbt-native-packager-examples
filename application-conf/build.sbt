@@ -1,5 +1,4 @@
-enablePlugins(SbtNativePackager)
-enablePlugins(JavaAppPackaging)
+enablePlugins(JavaServerAppPackaging)
 
 name := "mukis-application-conf"
 
