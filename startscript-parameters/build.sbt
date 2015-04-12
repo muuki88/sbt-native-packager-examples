@@ -15,3 +15,8 @@ packageDescription := "Custom startscript parameters"
 rpmVendor := "Nepomuk Seiler"
 
 rpmLicense := Some( "GNU/GPLv3" )
+
+// Variant 1:
+// javaOptions in Universal ++= Seq("mukis-startscript-parameters", "-Dde.mukis=Tester", "-interval", "20")
+// Variant 2:
+// src/templates/application.ini
