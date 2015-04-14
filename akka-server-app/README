@@ -1,0 +1,10 @@
+Build instruction ( tested ):
+
+- sbt universal:packageBin
+  after unzip the zip file to the destination path, 
+  you have to configure the application.ini file
+  and setup the full path to the application.conf file
+  
+- sbt rpm:packageBin
+  after the installation with rpm -ivh mukis-akka-server-app
+  the service is started automatically with the correct settings.
