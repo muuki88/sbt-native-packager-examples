@@ -1,6 +1,4 @@
-import com.typesafe.sbt.SbtNativePackager._
 import com.typesafe.sbt.packager.archetypes.ServerLoader
-import NativePackagerKeys._
 
 name := "mukis-application-conf"
 
@@ -12,17 +10,15 @@ libraryDependencies ++= Seq(
 
 mainClass in Compile := Some("de.mukis.ConfigApp")
 
-packageArchetype.java_server
+enablePlugins(JavaServerAppPackaging)
 
 maintainer in Linux := "Nepomuk Seiler <nepomuk.seiler@mukis.de>"
-
 packageSummary in Linux := "Custom application configuration"
-
 packageDescription := "Custom application configuration"
 
-mappings in Universal <+= (packageBin in Compile, sourceDirectory ) map { (_, src) =>
+mappings in Universal += {
     // we are using the reference.conf as default application.conf
     // the user can override settings here
-    val conf = src / "main" / "resources" / "reference.conf"
+    val conf = (resourceDirectory in Compile).value / "reference.conf"
     conf -> "conf/application.conf"
 }
