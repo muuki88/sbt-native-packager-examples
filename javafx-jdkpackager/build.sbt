@@ -26,7 +26,11 @@ jdkAppIcon :=  (sourceDirectory.value ** iconGlob).getPaths.headOption.map(file)
 jdkPackagerType := "installer"
 
 // this is to help ubuntu 15.10
-jdkPackagerTool := jdkPackagerTool.value orElse Some(file("/usr/lib/jvm/java-8-oracle/bin/javapackager"))
+antPackagerTasks in JDKPackager := (antPackagerTasks in JDKPackager).value orElse {
+  for {
+    f <- Some(file("/usr/lib/jvm/java-8-oracle/lib/ant-javafx.jar")) if f.exists()
+  } yield f
+}
 
 fork := true
 
