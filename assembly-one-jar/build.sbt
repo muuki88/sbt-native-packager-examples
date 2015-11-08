@@ -1,8 +1,4 @@
-import NativePackagerKeys._
-import AssemblyKeys._
-
 name := "assemblyProject"
-
 version := "1.0"
 
 // add some dependencies
@@ -11,21 +7,13 @@ libraryDependencies ++= Seq(
     "com.google.guava" % "guava" % "18.0"
 )
 
-mainClass in Compile := Some("de.mukis.ConfigApp")
-
-// the assembly settings
-assemblySettings
+enablePlugins(JavaAppPackaging)
 
 // we specify the name for our fat jar
 jarName in assembly := "assembly-project.jar"
 
-// using the java server for this application
-packageArchetype.java_server
-
 maintainer in Linux := "Nepomuk Seiler <nepomuk.seiler@mukis.de>"
-
 packageSummary in Linux := "Custom application configuration"
-
 packageDescription := "Custom application configuration"
 
 // removes all jar mappings in universal and appends the fat jar
