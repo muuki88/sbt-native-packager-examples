@@ -11,25 +11,11 @@ sbt txtFormat:packageBin
 # Core settings
 
 The main part is the custom `packageBin in txtFormat` implementation.
+This is done via a custom `AutoPlugin` define under `project/TxtFormatPlugin.scala`
 
-First define a scope with
 
-```scala
-val TxtFormat = config("txtFormat")
-```
+The main steps are
 
-and then implement `packageBin` for this scope
+- defining a custom scope
+- implementing the `packageBin` task
 
-```scala
-packageBin in TxtFormat := {
-    val fileMappings = (mappings in Universal).value
-    val output = target.value / s"${packageName.value}.txt"
-    // create the is with the mappings. Note this is not the ISO format -.-
-    IO.write(output, "# Filemappings\n")
-    // append all mappings to the list
-    fileMappings foreach {
-        case (file, name) => IO.append(output, s"${file.getAbsolutePath}\t$name${IO.Newline}")
-    }
-    output
-}
-```
