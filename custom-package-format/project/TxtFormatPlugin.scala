@@ -23,10 +23,12 @@ object TxtFormatPlugin extends AutoPlugin {
   override def projectSettings = inConfig(TxtFormat)(Seq(
     // define a custom target directory
     target := target.value / "txt",
+    mappings := (mappings in Universal).value,
+    packageName := (packageName in Universal).value,
     
     // implementing the packageBin task
     packageBin := {
-        val fileMappings = (mappings in Universal).value
+        val fileMappings = mappings.value
         val output = target.value / s"${packageName.value}.txt"
         // create the is with the mappings. Note this is not the ISO format -.-
         IO.write(output, "# Filemappings\n")
