@@ -13,7 +13,7 @@ packageDescription := "Custom startscript parameters"
 
 // rpm specific
 rpmRelease := "1"
-rpmVendor := "mukis.de, Muki"
+rpmVendor := "mukis.de"
 rpmUrl := Some("http://github.com/muuki88/sbt-native-packager")
 rpmLicense := Some("Apache v2")
 
