@@ -19,6 +19,7 @@ packageDescription := "Custom application configuration"
 bashScriptConfigLocation := Some("${app_home}/../conf/jvmopts")
 bashScriptExtraDefines += """addJava "-Dconfig.file=${app_home}/../conf/app.config""""
 
+// how to override loader functions
 linuxScriptReplacements += {
   val functions = sourceDirectory.value / "templates" / "custom-loader-functions"
   "loader-functions" -> TemplateWriter.generateScript(functions.toURL, Nil)
