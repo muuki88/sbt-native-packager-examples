@@ -31,8 +31,8 @@ addCommandAlias("packageAll", "; clean " +
                               "; packageRpmSystemD")
 
 lazy val packageDebianUpstart = taskKey[File]("creates deb-upstart package")
-lazy val packageDebianSystemV = taskKey[File]("creates deb-systenv package")
-lazy val packageRpmSystemD = taskKey[File]("creates rpm-systenv package")
+lazy val packageDebianSystemV = taskKey[File]("creates deb-systemv package")
+lazy val packageRpmSystemD = taskKey[File]("creates rpm-systemd package")
 
 packageDebianUpstart := {
   val output = baseDirectory.value / "package" / "deb-upstart"
