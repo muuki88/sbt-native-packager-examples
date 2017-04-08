@@ -7,7 +7,7 @@ libraryDependencies ++= Seq(
     "com.typesafe" % "config" % "1.2.0"
 )
 
-enablePlugins(JavaServerAppPackaging)
+enablePlugins(JavaServerAppPackaging, UpstartPlugin)
 
 mainClass in Compile := Some("de.mukis.TestApp")
 
