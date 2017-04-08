@@ -1,4 +1,4 @@
-enablePlugins(JavaServerAppPackaging)
+enablePlugins(JavaServerAppPackaging, SystemdPlugin)
 
 name := "simple-rpm"
 organization := "de.muki"
@@ -16,4 +16,3 @@ rpmRelease := "1"
 rpmVendor := "mukis.de"
 rpmUrl := Some("http://github.com/muuki88/sbt-native-packager")
 rpmLicense := Some("Apache v2")
-
