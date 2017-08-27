@@ -4,7 +4,7 @@ lazy val root = project.in(file("."))
   .enablePlugins(JavaAppPackaging)
   .settings(
     name := "application",
-    // add
+    // add the discoveredMainClasses to this project
     discoveredMainClasses in Compile ++= (discoveredMainClasses in (client, Compile)).value,
     discoveredMainClasses in Compile ++= (discoveredMainClasses in (server, Compile)).value
   )
