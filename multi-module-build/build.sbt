@@ -20,7 +20,7 @@ lazy val root = Project(
     id = "root",
     base = file("."),
     // configure your native packaging settings here
-    settings = packageArchetype.java_server++ Seq(
+    settings = Seq(
         maintainer := "John Smith <john.smith@example.com>",
         packageDescription := "Fullstack Application",
         packageSummary := "Fullstack Application",
@@ -29,7 +29,8 @@ lazy val root = Project(
     ),
     // always run all commands on each sub project
     aggregate = Seq(frontend, backend, api)
-) dependsOn(frontend, backend, api) // this does the actual aggregation
+).enablePlugins(JavaServerAppPackaging) // enable app packaging on this project
+ .dependsOn(frontend, backend, api) // this does the actual aggregation
 
 // --------- Project Frontend ------------------
 lazy val frontend = Project(
