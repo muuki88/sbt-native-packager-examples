@@ -1,12 +1,13 @@
 enablePlugins(JavaServerAppPackaging)
 
 name := "mukis-application-conf"
-
 version := "1.0"
+
+scalaVersion := "2.12.6"
 
 libraryDependencies ++= Seq(
     "com.typesafe" % "config" % "1.2.1",
-    "org.scalatest" %% "scalatest" % "2.2.4" % "test"
+    "org.scalatest" %% "scalatest" % "3.0.0" % "test"
 )
 
 mainClass in Compile := Some("de.mukis.ConfigApp")
@@ -21,6 +22,9 @@ mappings in Universal += {
     val conf = (resourceDirectory in Compile).value / "reference.conf"
     conf -> "conf/application.conf"
 }
+
+// add jvm parameter for typesafe config
+bashScriptExtraDefines += """addJava "-Dconfig.file=${app_home}/../conf/app.config""""
 
 // for publish task
 // import com.typesafe.sbt.packager.SettingsHelper
