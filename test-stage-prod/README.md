@@ -6,7 +6,7 @@ Build with
 
 ```bash
 sbt
-> testPackage/universal:packageBin
-> stagePackage/universal:packageBin
-> prodPackage/universal:packageBin
+> testPackage / Universal / packageBin
+> stagePackage / Universal / packageBin
+> prodPackage / Universal / packageBin
 ```
