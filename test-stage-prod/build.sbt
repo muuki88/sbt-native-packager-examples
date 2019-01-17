@@ -15,9 +15,7 @@ lazy val testPackage = project
   .settings(
     Compile / mainClass := (app / Compile / mainClass).value,
     Compile / resourceDirectory := (app / Compile / resourceDirectory).value,
-    Universal / mappings += {
-      ((resourceDirectory in Compile).value / "test.conf") -> "conf/application.conf"
-    }
+    javaOptions in Universal += "-Dconfig.resource=test.conf"
   )
   .dependsOn(app)
 
@@ -27,9 +25,7 @@ lazy val stagePackage = project
   .settings(
     Compile / mainClass := (app / Compile / mainClass).value,
     Compile / resourceDirectory := (app / Compile / resourceDirectory).value,
-    Universal / mappings += {
-      ((resourceDirectory in Compile).value / "stage.conf") -> "conf/application.conf"
-    }
+    javaOptions in Universal += "-Dconfig.resource=stage.conf"
   )
   .dependsOn(app)
 
@@ -39,8 +35,6 @@ lazy val prodPackage = project
   .settings(
     Compile / mainClass := (app / Compile / mainClass).value,
     Compile / resourceDirectory := (app / Compile / resourceDirectory).value,
-    Universal / mappings += {
-      ((Compile / resourceDirectory).value / "prod.conf") -> "conf/application.conf"
-    }
+    javaOptions in Universal += "-Dconfig.resource=prod.conf"
   )
   .dependsOn(app)
