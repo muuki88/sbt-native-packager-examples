@@ -24,7 +24,7 @@ mappings in Universal += {
 }
 
 // add jvm parameter for typesafe config
-bashScriptExtraDefines += """addJava "-Dconfig.file=${app_home}/../conf/app.config""""
+bashScriptExtraDefines += """addJava "-Dconfig.file=${app_home}/../conf/application.conf""""
 
 // for publish task
 // import com.typesafe.sbt.packager.SettingsHelper
